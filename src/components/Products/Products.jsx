@@ -3,6 +3,7 @@ import { CiHeart } from "react-icons/ci";
 import Cards from "../Cards/Cards";
 import ScrollToTop from 'react-scroll-to-top';
 import "./Products.css";
+import { Link } from "react-router-dom";
 
 const Products = () => {
   return (
@@ -47,12 +48,12 @@ const Products = () => {
             <div className="size-num">47</div>
           </div>
           <div className="button-div">
-            <button className="cart">ADD TO CART</button>
+          <Link to='/cart' style={{ textDecoration: 'none'}}><button className="cart">ADD TO CART</button></Link>
             <button className="like">
               <CiHeart />
             </button>
           </div>
-          <button className="buy">BUY IT NOW</button>
+          <Link to='/check' style={{ textDecoration: 'none'}}><button type="submit" className="buy">BUY IT NOW</button></Link>
           <div className="product-data">
             <h2>ABOUT THE PRODUCT</h2>
             <p>Shadow Navy / Army Green</p>

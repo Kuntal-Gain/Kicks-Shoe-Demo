@@ -97,7 +97,7 @@ const Signup = () => {
             <input type="checkbox" name="" id="" required />
             <p>By clicking 'Register' you agree to our website KicksClub Terms & Conditions, Kicks Privacy Notice and Terms & Conditions.</p>
           </div>
-          <p className='create-acc'>Already have an account ? <Link to='/login'><span>Log in</span></Link></p>
+          <p className='create-acc'>Already have an account ? <Link to='/login' style={{ textDecoration: 'none'}}><span>Log in</span></Link></p>
           <button className='email' type='submit'>REGISTER</button>
         </form>
       </div>

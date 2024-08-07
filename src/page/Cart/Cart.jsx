@@ -1,6 +1,7 @@
 import React from "react";
 import "./Cart.css";
 import cartData from "../../data.json";
+import { Link } from "react-router-dom";
 
 const Cart = () => {
   return (
@@ -60,7 +61,7 @@ const Cart = () => {
               <h4>$126.99</h4>
             </div>
           </div>
-          <button>CHECKOUT</button>
+          <Link to='/check' style={{ textDecoration: 'none'}}><button type="submit">CHECKOUT</button></Link>
           <p>Use a Promo Code</p>
         </div>
       </div>

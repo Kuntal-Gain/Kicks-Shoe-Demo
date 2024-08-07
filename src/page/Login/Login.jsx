@@ -25,7 +25,7 @@ const Login = () => {
           <button><i><FaFacebook /></i></button>
         </div>
         <p className='log-conf'>By clicking 'Log In' you agree to our website KicksClub Terms & Conditions, Kicks Privacy Notice and Terms & Conditions.</p>
-        <p className='create-acc'>Don't have an account ? <Link to='/signup'><span>Create an account</span></Link></p>
+        <p className='create-acc'>Don't have an account ? <Link to='/signup' style={{ textDecoration: 'none'}}><span>Create an account</span></Link></p>
       </div>
       <div className="log-right">
         <h2>Join Kicks Club Get Rewarded Today.</h2>
