@@ -11,12 +11,11 @@ const Signup = () => {
   const [gender, setGender] = useState('Select');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
 
   const navigate = useNavigate(); // Use the useNavigate hook for redirection
 
-  const handleRegister = async (e) => {
-    e.preventDefault();
-
+  const handleRegister = async () => {
     try {
       const response = await axios.post('http://localhost:6969/api/auth/register', {
         fname,
@@ -30,6 +29,7 @@ const Signup = () => {
       navigate('/');
     } catch (error) {
       console.error('Error registering:', error.response ? error.response.data : error.message);
+      setError(error.response ? error.response.data.message : error.message);
       // Handle registration errors
     }
   };
@@ -46,60 +46,59 @@ const Signup = () => {
         </div>
         <p className='name-para'>Or</p>
         <p className='name-para'>Your Details</p>
-        <form onSubmit={handleRegister}>
-          <div className="sign-input">
-            <input
-              type="text"
-              placeholder='First Name'
-              value={fname}
-              onChange={(e) => setFname(e.target.value)}
-              required
-            />
-            <input
-              type="text"
-              placeholder='Last Name'
-              value={lname}
-              onChange={(e) => setLname(e.target.value)}
-              required
-            />
-          </div>
-          <div className="sign-check">
-            <p>Gender</p>
-            <select
-              name="gender"
-              value={gender}
-              onChange={(e) => setGender(e.target.value)}
-              required
-            >
-              <option value="Select">Select</option>
-              <option value="Male">Male</option>
-              <option value="Female">Female</option>
-            </select>
-          </div>
-          <p className='name-para'>Login Details</p>
-          <div className="sign-input">
-            <input
-              type="email"
-              placeholder='Email'
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-            <input
-              type="password"
-              placeholder='Password'
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
-          </div>
-          <div className="check-confirm">
-            <input type="checkbox" name="" id="" required />
-            <p>By clicking 'Register' you agree to our website KicksClub Terms & Conditions, Kicks Privacy Notice and Terms & Conditions.</p>
-          </div>
-          <p className='create-acc'>Already have an account ? <Link to='/login' style={{ textDecoration: 'none'}}><span>Log in</span></Link></p>
-          <button className='email' type='submit'>REGISTER</button>
-        </form>
+        <div className="sign-input">
+          <input
+            type="text"
+            placeholder='First Name'
+            value={fname}
+            onChange={(e) => setFname(e.target.value)}
+            required
+          />
+          <input
+            type="text"
+            placeholder='Last Name'
+            value={lname}
+            onChange={(e) => setLname(e.target.value)}
+            required
+          />
+        </div>
+        <div className="sign-check">
+          <p>Gender</p>
+          <select
+            name="gender"
+            value={gender}
+            onChange={(e) => setGender(e.target.value)}
+            required
+          >
+            <option value="Select">Select</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+          </select>
+        </div>
+        <p className='name-para'>Login Details</p>
+        <div className="sign-input">
+          <input
+            type="email"
+            placeholder='Email'
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+          <input
+            type="password"
+            placeholder='Password'
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+        </div>
+        <div className="check-confirm">
+          <input type="checkbox" name="" id="" required />
+          <p>By clicking 'Register' you agree to our website KicksClub Terms & Conditions, Kicks Privacy Notice and Terms & Conditions.</p>
+        </div>
+        {error && <p className="error-message">{error}</p>}
+        <p className='create-acc'>Already have an account? <Link to='/login' style={{ textDecoration: 'none' }}><span>Log in</span></Link></p>
+        <button className='email' type='button' onClick={handleRegister}>REGISTER</button>
       </div>
       <div className="sign-right">
         <h2>Join Kicks Club Get Rewarded Today.</h2>
