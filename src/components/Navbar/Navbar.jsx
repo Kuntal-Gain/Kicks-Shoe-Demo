@@ -1,11 +1,7 @@
-<<<<<<< HEAD
 import React from 'react';
 import './Navbar.css';
 import { IoSearch } from "react-icons/io5";
-=======
-import React from 'react'
-import './Navbar.css'
->>>>>>> 08d709029daba0698dba007ba5119058d9397c0f
+
 import { FaUser, FaShoppingCart } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 
