@@ -4,6 +4,7 @@ import mongoose from 'mongoose';
 import { json, urlencoded } from 'body-parser';
 import cors from 'cors';
 import authRoutes from './routes/auth_routes';
+import productRoutes from './routes/product_routes'; // Import product routes
 import { authMiddleware } from './middleware/middleware';
 
 dotenv.config();
@@ -16,7 +17,8 @@ app.use(urlencoded({ extended: true }));
 app.use(cors()); // Enable CORS for all routes
 
 // Routes
-app.use('/api/auth', authRoutes);
+app.use('/v1/auth', authRoutes);
+app.use('/v1/products', productRoutes);
 
 // Example protected route using the auth middleware
 app.use('/api/protected', authMiddleware, (req, res) => {

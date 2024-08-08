@@ -1,3 +1,5 @@
+
+
 import React from 'react';
 import './Navbar.css';
 import { IoSearch } from "react-icons/io5";
@@ -16,9 +18,9 @@ const Navbar = () => {
   return (
     <div className='navbar'>
       <div className="nav-left">
-        <Link to='/men' style={{ textDecoration: 'none', color: 'black'}}><p>New Drops</p></Link>
+        <Link to='/men' style={{ textDecoration: 'none', color: 'black' }}><p>New Drops</p></Link>
         <p>Category</p>
-        <Link to='/shops' style={{ textDecoration: 'none', color: 'black'}}><p>Stores</p></Link>
+        <Link to='/shops' style={{ textDecoration: 'none', color: 'black' }}><p>Stores</p></Link>
       </div>
       <div className="nav-center">
         <Link to='/'><img className='nav-logo' src="/assets/logo-kicks.png" alt="" /></Link>
