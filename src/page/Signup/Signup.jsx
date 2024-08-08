@@ -13,7 +13,7 @@ const Signup = () => {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
 
-  const navigate = useNavigate(); // Use the useNavigate hook for redirection
+  const navigate = useNavigate();
 
   const handleRegister = async () => {
     try {
@@ -25,12 +25,12 @@ const Signup = () => {
         password
       });
       console.log(response.data);
-      // Redirect to home page upon successful registration
+      // Set user as online and navigate to home
+      localStorage.setItem('isOnline', 'true');
       navigate('/');
     } catch (error) {
       console.error('Error registering:', error.response ? error.response.data : error.message);
       setError(error.response ? error.response.data.message : error.message);
-      // Handle registration errors
     }
   };
 

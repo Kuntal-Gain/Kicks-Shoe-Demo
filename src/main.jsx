@@ -1,16 +1,31 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import Layout from './Layout.jsx'
-import './index.css'
-import Signup from './page/Signup/Signup.jsx'
-import Login from './page/Login/Login.jsx'
-import Hero from './components/Hero/Hero.jsx'
-import Products from './components/Products/Products.jsx'
-import Cart from './page/Cart/Cart.jsx'
-import Checkout from './page/Checkout/Checkout.jsx'
+
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import { createBrowserRouter, RouterProvider, Route, Navigate } from 'react-router-dom';
+import Layout from './Layout.jsx';
+import './index.css';
+import Signup from './page/Signup/Signup.jsx';
+import Login from './page/Login/Login.jsx';
+import Hero from './components/Hero/Hero.jsx';
+import Products from './components/Products/Products.jsx';
+import Cart from './page/Cart/Cart.jsx';
+import Checkout from './page/Checkout/Checkout.jsx';
+
 import Men from './page/Men/Men.jsx'
 import Shops from './page/Shops/Shops.jsx'
+
+
+// Utility function to check if the user is authenticated
+const isAuthenticated = () => {
+  return localStorage.getItem('isOnline') === 'true';
+};
+
+// Component to protect routes
+const ProtectedRoute = ({ element }) => {
+  return isAuthenticated() ? element : <Navigate to="/login" />;
+};
+
+
 
 const router = createBrowserRouter([
   {
@@ -19,7 +34,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Hero />
+        element: <ProtectedRoute element={<Hero />} />, // Protect this route
       },
       {
         path: "/signup",
@@ -51,10 +66,10 @@ const router = createBrowserRouter([
       }
     ]
   }
-])
+]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <RouterProvider router={router} />
   </React.StrictMode>
-)
+);

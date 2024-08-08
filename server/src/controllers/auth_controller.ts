@@ -20,6 +20,7 @@ export const registerUser = async (req: Request, res: Response) => {
             gender,
             email,
             password,
+            isOnline: true, // Set isOnline to true on registration
         });
 
         const salt = await bcrypt.genSalt(10);
@@ -56,6 +57,9 @@ export const loginUser = async (req: Request, res: Response) => {
             return res.status(400).json({ message: 'Invalid Credentials' });
         }
 
+        user.isOnline = true; // Set isOnline to true on login
+        await user.save();
+
         res.json({ message: 'User logged in successfully' });
     } catch (err) {
         if (err instanceof Error) {
@@ -70,5 +74,26 @@ export const loginUser = async (req: Request, res: Response) => {
 
 // Logout User
 export const logoutUser = async (req: Request, res: Response) => {
-    res.json({ message: 'User logged out successfully' });
+    try {
+        const { email } = req.body;
+
+        let user = await User.findOne({ email });
+
+        if (!user) {
+            return res.status(400).json({ message: 'User not found' });
+        }
+
+        user.isOnline = false; // Set isOnline to false on logout
+        await user.save();
+
+        res.json({ message: 'User logged out successfully' });
+    } catch (err) {
+        if (err instanceof Error) {
+            console.error(err.message);
+            res.status(500).send('Server error');
+        } else {
+            console.error('Unexpected error:', err);
+            res.status(500).send('Server error');
+        }
+    }
 };
