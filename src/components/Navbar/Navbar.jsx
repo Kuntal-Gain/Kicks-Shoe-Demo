@@ -1,7 +1,9 @@
 
+
 import React from 'react';
 import './Navbar.css';
 import { IoSearch } from "react-icons/io5";
+
 import { FaUser, FaShoppingCart } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 
