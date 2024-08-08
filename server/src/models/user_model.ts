@@ -7,6 +7,7 @@ interface IUser extends Document {
     gender: string;
     email: string;
     password: string;
+    isOnline: Boolean;
 }
 
 const UserSchema: Schema = new Schema({
@@ -14,7 +15,8 @@ const UserSchema: Schema = new Schema({
     lname: { type: String, required: true },
     gender: { type: String, required: true },
     email: { type: String, required: true, unique: true },
-    password: { type: String, required: true }
+    password: { type: String, required: true },
+    isOnline: { type: Boolean, required: true }
 });
 
 export default mongoose.model<IUser>('users', UserSchema);
