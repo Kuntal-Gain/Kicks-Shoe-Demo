@@ -1,19 +1,25 @@
-.cards{
+.cards {
     max-width: 100%;
     margin: 50px 30px;
 }
-.card-head{
+
+.card-head {
     padding: 10px 50px;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
-.card-head h2{
+
+.card-head h2 {
     font-size: 4vw;
     font-weight: 800;
+    margin-bottom: 30px;
+    margin-left: -40px;
 }
-.card-head button{
+
+.card-head button {
     padding: 15px 25px;
+    margin-left: 20px;
     margin-top: 60px;
     border-radius: 7px;
     border: none;
@@ -24,34 +30,41 @@
     font-size: 14px;
     transition: all 0.5s ease-out;
 }
-.card-head button:hover{
+
+.card-head button:hover {
     background-color: #212121;
 }
-.cards .card-container{
+
+.cards .card-container {
     display: grid;
-    grid-template-columns: repeat(4,1fr);
+    grid-template-columns: repeat(4, 1fr);
     width: 100%;
     gap: 20px;
 }
-.card-container .card{
+
+.card-container .card {
     width: auto;
     height: 70vh;
     padding: 10px;
 }
-.card .card-image{
+
+.card .card-image {
     width: 100%;
 }
-.card-image img{
+
+.card-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     border-radius: 30px;
 }
-.card .card-title{
+
+.card .card-title {
     margin-top: 20px;
     font-size: 16px;
 }
-.card .card-price{
+
+.card .card-price {
     margin-top: 30px;
     text-align: center;
     background-color: #212121;
@@ -62,6 +75,7 @@
     font-size: 13px;
     cursor: pointer;
 }
-.card-price span{
+
+.card-price span {
     color: goldenrod;
 }

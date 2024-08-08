@@ -1,0 +1,86 @@
+.men{
+    padding: 10px 20px;
+    max-width: 100%;
+    margin: 25px 30px;
+}
+.men .men-banner{
+    height: 60vh;
+    max-width: 100%;
+    border-radius: 27px;
+    position: relative;
+    background-image: url("/assets/men.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+.men-banner .men-text{
+    position: absolute;
+    top: 30%;
+    left: 3%;
+    color: white;
+}
+.men-text h3{
+    font-size: 2.3vw;
+    font-weight: 500;
+}
+.men-text h1{
+    font-size: 4.5vw;
+    letter-spacing: 2px;
+}
+.men-text p{
+    font-size: 1.7vw;
+    line-height: 1.5;
+    margin-top: 5px;
+}
+.men .men-para{
+    margin-top: 20px;
+    padding: 30px 20px;
+    display: flex;
+    justify-content: space-between;
+}
+.men-para h1{
+    font-size: 3vw;
+}
+.men-para select{
+    padding: 10px 20px;
+    font-family: "Outfit", sans-serif;
+    font-size: 1.3rem;
+    border: 2px solid #0f0f0f;
+    border-radius: 10px;
+}
+.men-para select option{
+    margin: 20px;
+}
+.men-left{
+    padding: 20px;
+    max-width: 100%;
+}
+.men-left h1{
+    font-size: 2.5vw;
+    margin-bottom: 20px;
+}
+.men-left h2{
+    font-size: 2vw;
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+.men-left .refine{
+    display: flex;
+    gap: 40px;
+    margin-bottom: 20px;
+}
+.refine button{
+    padding: 15px;
+    width: 10%;
+    background-color: #0f0f0f;
+    color: white;
+    font-size: 1.2rem;
+    border-radius: 13px;
+    font-family: "Outfit", sans-serif;
+}
+.input{
+    display: flex;
+    gap: 20px;
+    font-size: 1.7vw;
+    margin: 10px;
+}
