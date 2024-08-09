@@ -19,7 +19,7 @@ const Login = () => {
 
   const handleLogin = async () => {
     try {
-      const response = await axios.post('http://localhost:6969/api/auth/login', {
+      const response = await axios.post('http://localhost:6969/v1/auth/login', {
         email,
         password
       });
@@ -62,9 +62,9 @@ const Login = () => {
         <button className='email' type='button' onClick={handleLogin}>LOGIN</button>
         {error && <p className="error-message">{error}</p>}
         <div className="log-buttons">
-          <button><i><FcGoogle /></i></button>
-          <button><i><FaApple /></i></button>
-          <button><i><FaFacebook /></i></button>
+          <button><FcGoogle /></button>
+          <button><FaApple /></button>
+          <button><FaFacebook /></button>
         </div>
         <p className='log-conf'>By clicking 'Log In' you agree to our website KicksClub Terms & Conditions, Kicks Privacy Notice and Terms & Conditions.</p>
         <p className='create-acc'>Don't have an account? <Link to='/signup' style={{ textDecoration: 'none' }}><span>Create an account</span></Link></p>
@@ -80,7 +80,9 @@ const Login = () => {
           <li>Special offers and promotions​</li>
         </ul>
         <p className='para'>Join now to start earning points, reach new levels, and unlock more rewards and benefits from adiClub.​</p>
-        <button className='join' type='submit'>JOIN THE CLUB</button>
+        <Link to='/signup'>
+          <button className='join' type='button'>JOIN THE CLUB</button>
+        </Link>
       </div>
     </div>
   );
