@@ -1,50 +1,49 @@
 [
-    {
-      "id": 1,
-      "title": "ADIDAS 4DFWD X PARLEY RUNNING SHOES",
-      "price": "$125",
-      "image": "/assets/shoe1.png"
+  {
+    "_id": {
+      "$oid": "66b4ab77c81c631a5cdc55d5"
     },
-    {
-      "id": 2,
-      "title": "ADIDAS 4DFWD X PARLEY BLAZING SHOES",
-      "price": "$155",
-      "image": "/assets/shoe2.png"
+    "productId": "P001",
+    "productName": "ADIDAS 4DFWD X PARLEY RUNNING SHOES",
+    "price": 89.99,
+    "colorOptions": [
+      "#ff0000",
+      "#00ff00"
+    ],
+    "sizes": [
+      10,
+      12,
+      14,
+      16
+    ],
+    "description": "Shadow Navy / Army Green This product is excluded from all promotional discounts and offers.",
+    "productPreview": [
+      "https://assets.adidas.com/videos/h_840,c_fill,f_auto,q_auto,fl_lossy,so_1,g_auto/96cb9081327b40999dafaed900fc9647_d98c/adidas_4DFWD_x_Parley_Shoes_Blue_GX6604_video.jpg",
+      "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/d934c260d8eb4e699908aecb00dc8e5d_9366/adidas_4DFWD_x_Parley_Shoes_Blue_GX6604_01_standard.jpg"
+    ],
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "66b4b1b7d34b329a830d9b75"
     },
-    {
-      "id": 3,
-      "title": "ADIDAS 4DFWD X PARLEY SILVER SHOES",
-      "price": "$225",
-      "image": "/assets/shoe3.png"
-    },
-    {
-      "id": 4,
-      "title": "ADIDAS 4DFWD X PARLEY OFFWHITE SHOES",
-      "price": "$380",
-      "image": "/assets/shoe4.png"
-    },
-    {
-      "id": 5,
-      "title": "ADIDAS 4XFWD X OZELIA SHOES GREEN",
-      "price": "$150",
-      "image": "/assets/shoe5.png"
-    },
-    {
-      "id": 6,
-      "title": "ADIDAS 4DFWD X MIAMI JOGGING SHOES",
-      "price": "$195",
-      "image": "/assets/shoe6.png"
-    },
-    {
-      "id": 7,
-      "title": "ADIDAS 4DFWX 2 OLIVO RUNNING SHOES",
-      "price": "$255",
-      "image": "/assets/shoe7.png"
-    },
-    {
-      "id": 8,
-      "title": "ADIDAS 4DEWD X OZELIA SHOES BLUE",
-      "price": "$145",
-      "image": "/assets/shoe8.png"
-    }
+    "productId": "P002",
+    "productName": "Men's Adidas 4DFWD x Parley Running Shoe / Off White Green / GZ8625 / Size 8.5",
+    "price": 159.99,
+    "colorOptions": [
+      "#ff0000",
+      "#00ff00"
+    ],
+    "sizes": [
+      8.5,
+      10,
+      12
+    ],
+    "description": "New with box: A brand-new, unused, and unworn item (including handmade items) in the original packaging (such as the original box or bag) and/or with the original tags attached.",
+    "productPreview": [
+      "https://i.ebayimg.com/images/g/J6kAAOSwbHdluWsk/s-l1600.webp",
+      "https://i.ebayimg.com/images/g/KIYAAOSw3V1luWsm/s-l960.webp"
+    ],
+    "__v": 0
+  }
 ]
