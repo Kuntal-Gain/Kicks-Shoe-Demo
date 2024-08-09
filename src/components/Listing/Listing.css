@@ -302,14 +302,16 @@
 }
 
 .filter .rightsection {
-    width: 886px;
-    height: 250vh;
+    width: auto;
+    height: auto;
+
     top: 732px;
     left: 394px;
     gap: 38px;
     opacity: 0px;
     display: flex;
     flex-direction: row;
+    flex: 0 0 33.33%;
     flex-wrap: wrap;
 }
 
@@ -367,7 +369,7 @@
 
 .rightsection .pages {
     width: 986px;
-    height: 32px;
+    height: 20vh;
     top: 2342px;
     left: 394px;
     gap: 16px;
