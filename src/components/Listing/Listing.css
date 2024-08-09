@@ -1,0 +1,390 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.topimg {
+    padding: 30px;
+    padding-left: 60px;
+    position: relative;
+}
+
+.topimg .text {
+    margin-top: 50px;
+    position: absolute;
+    color: #e7e7e3;
+    padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    flex-wrap: wrap;
+    padding-left: 60px;
+}
+
+.topimg .text .top {
+    font-size: 1.2rem;
+    font-weight: 400;
+    line-height: 27.24px;
+    text-align: left;
+
+}
+
+.topimg .text h2 {
+    font-size: 4.5rem;
+    font-weight: 600;
+    line-height: 87.69px;
+    text-align: left;
+
+}
+
+.topimg img {
+    width: 90vw;
+    height: 395px;
+    gap: 0px;
+    border-radius: 48px;
+    opacity: 0px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.chart {
+    padding: 30px 90px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.chart .left h2 {
+
+    font-family: "Rubik", sans-serif;
+    font-size: 2.5rem;
+    font-weight: 600;
+    line-height: 42.66px;
+    text-align: left;
+}
+
+.chart .left p {
+    font-family: "RUbik", sans-serif;
+    margin-top: 10px;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 21.79px;
+    text-align: left;
+}
+
+#dropdown {
+    background-color: #F4F2F2;
+    width: 150px;
+    height: 56px;
+    padding: 10px;
+    gap: 16px;
+    border-radius: 16px;
+    opacity: 0px;
+    border: none;
+}
+
+.filter {
+    display: flex;
+    gap: 2rem;
+}
+
+.filter .leftsection {
+    margin-left: 70px;
+    width: 23vw;
+    height: auto;
+    top: 732px;
+    left: 60px;
+    gap: 24px;
+    opacity: 0px;
+}
+
+.filter .leftsection h2 {
+    font-family: "Rubik", sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 28.44px;
+    text-align: left;
+    margin: 15px;
+}
+
+.filter .leftsection .refine {
+    display: flex;
+    margin: 15px;
+    justify-content: space-between;
+}
+
+
+.filter .leftsection .btn {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-left: 20px;
+}
+
+.filter .leftsection .btn div {
+    width: auto;
+    height: 38px;
+    padding: 10px 10px;
+    gap: 10px;
+    border-radius: 12px;
+    opacity: 0px;
+    background-color: #4a69e2;
+    color: white;
+}
+
+.filter .sizetxt {
+    display: flex;
+    margin: 15px;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.filter .sizepage {
+    margin: 10px 15px;
+    width: auto;
+    height: auto;
+    gap: 16px;
+    opacity: 0px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.filter .sizepage div {
+    width: auto;
+    height: auto;
+    padding: 15px;
+    gap: 4px;
+    border-radius: 8px;
+    opacity: 0px;
+    background-color: #ffffff;
+}
+
+.filter .sizepage div:first-child {
+    background-color: #232321;
+    color: white;
+}
+
+.filter .sizepage div:nth-child(2) {
+    background-color: #d1d2d3;
+}
+
+.filter .sizepage div:nth-child(3) {
+    background-color: #d1d2d3;
+}
+
+.filter .color {
+    width: auto;
+    height: 112px;
+    gap: 16px;
+    opacity: 0px;
+    display: flex;
+    margin: 15px;
+    justify-content: space-between;
+}
+
+.filter .color-box {
+    width: auto;
+    height: auto;
+    gap: 16px;
+    opacity: 0px;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 15px;
+    margin-top: -30px;
+}
+
+.filter .color-box div {
+    width: 48px;
+    height: 48px;
+    margin: 4px 0px;
+    border-radius: 8px;
+    opacity: 0px;
+}
+
+.filter .typetxt {
+    width: auto;
+    height: 112px;
+    gap: 16px;
+    opacity: 0px;
+    display: flex;
+    margin: 15px;
+    margin-bottom: 0px;
+    justify-content: space-between;
+}
+
+.filter .checkbox {
+    margin: 15px;
+    margin-top: -70px;
+    width: 137px;
+    height: 202px;
+    gap: 8px;
+    opacity: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+}
+
+.filter .checkbox .element {
+    display: flex;
+    gap: 2.5vw;
+}
+
+.filter .checkbox2 .element {
+    display: flex;
+    gap: 2.5vw;
+}
+
+.filter .checkbox2 {
+    margin: 15px;
+    margin-top: -80px;
+    width: auto;
+    height: 10vh;
+    gap: 8px;
+    opacity: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+}
+
+.filter .range {
+    width: fit-content;
+    height: 36px;
+    gap: 5px;
+    opacity: 0px;
+    margin: 15px;
+    margin-top: -50px;
+}
+
+.filter .range input {
+    width: 22vw;
+    height: 12px;
+    gap: 0px;
+    opacity: 0px;
+}
+
+.filter .range input:-ms-input-placeholder {
+    background-color: #4a69e2;
+}
+
+.filter .p {
+    margin: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.card {
+    width: 986px;
+    height: 546px;
+    top: 732px;
+    left: 394px;
+    gap: 20px;
+    opacity: 0px;
+}
+
+.card .card-image {
+    width: 20vw;
+    height: 350px;
+    padding: 8px;
+    border-radius: 28px;
+    opacity: 0px;
+    background: #FAFAFA;
+}
+
+.card-image img {
+    height: 334px;
+    gap: 0px;
+    border-radius: 24px;
+    opacity: 0px;
+
+}
+
+.filter .rightsection {
+    width: 886px;
+    height: 250vh;
+    top: 732px;
+    left: 394px;
+    gap: 38px;
+    opacity: 0px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.rightsection .card {
+    width: 18vw;
+    height: 490px;
+    gap: 20px;
+    opacity: 0px;
+}
+
+.rightsection .card-title {
+    padding-left: 15px;
+    width: 20vw;
+    height: 56px;
+    gap: 8px;
+    opacity: 0px;
+
+}
+
+.rightsection h2 {
+    font-size: 1.4rem;
+}
+
+.rightsection button {
+    width: 20vw;
+    height: 48px;
+    padding: 8px 16px 8px 16px;
+    gap: 4px;
+    border-radius: 8px;
+    opacity: 0px;
+    background-color: #232321;
+    color: white;
+    margin-top: 3vh;
+    cursor: pointer;
+    font: 1em "Rubik";
+}
+
+.card .new {
+    width: 77px;
+    height: 38px;
+    padding: 13px 12px;
+    gap: 10px;
+    border-radius: 24px 0px 24px 0px;
+    opacity: 0px;
+    position: absolute;
+}
+
+.card .new p {
+    font-family: "Rubik", sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    line-height: 14.22px;
+    text-align: left;
+}
+
+.rightsection .pages {
+    width: 986px;
+    height: 32px;
+    top: 2342px;
+    left: 394px;
+    gap: 16px;
+    opacity: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.rightsection .pages div {
+    width: auto;
+    height: auto;
+    padding: 8px 16px 8px 16px;
+    gap: 4px;
+    border-radius: 8px;
+    border: 1px 0px 0px 0px;
+    opacity: 0px;
+    border: 1px solid black;
+}
