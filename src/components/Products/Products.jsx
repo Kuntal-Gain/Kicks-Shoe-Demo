@@ -1,80 +1,87 @@
-import React from "react";
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import axios from 'axios';
 import { CiHeart } from "react-icons/ci";
-import Cards from "../Cards/Cards";
 import ScrollToTop from 'react-scroll-to-top';
 import "./Products.css";
-import { Link } from "react-router-dom";
 
 const Products = () => {
+  const { productId } = useParams();
+  const [product, setProduct] = useState(null);
+
+  useEffect(() => {
+    // Fetch the product data based on productId
+    axios.get(`http://localhost:6969/v1/products/fetch/${productId}`)
+      .then(response => {
+        setProduct(response.data);
+      })
+      .catch(error => {
+        console.error('There was an error fetching the product data!', error);
+      });
+  }, [productId]);
+
+  if (!product) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <div className="products">
       <div style={{ marginTop: "1vh" }} />
       <ScrollToTop smooth />
       <div className="products-container">
         <div className="product-left">
-          <div className="image-div">
-            <img id="div1" src="/assets/Products/Shoe1.png" alt="" />
-          </div>
-          <div className="image-div">
-            <img id="div2" src="/assets/Products/Shoe2.png" alt="" />
-          </div>
-          <div className="image-div">
-            <img id="div3" src="/assets/Products/Shoe3.png" alt="" />
-          </div>
-          <div className="image-div">
-            <img id="div4" src="/assets/Products/Shoe4.png" alt="" />
-          </div>
+          {product.productPreview?.map((image, index) => (
+            <div className="image-div" key={index}>
+              <img id={`div${index + 1}`} src={image} alt={`Product image ${index + 1}`} />
+            </div>
+          )) || <div>No images available</div>}
         </div>
         <div className="product-right">
           <button>New Release</button>
-          <h2>ADIDAS 4DFWD X PARLEY RUNNING SHOES</h2>
-          <h4>$125.00</h4>
+          <h2>{product.productName}</h2>
+          <h4>${product.price}</h4>
           <p>Color</p>
           <div className="color">
-            <div className="color1"></div>
-            <div className="color2"></div>
+            {product.colorOptions?.map((color, index) => (
+              <div
+                className="color-box"
+                key={index}
+                style={{
+                  background: color,
+                  width: '50px',
+                  height: '50px',
+                  borderRadius: '50%',
+                  margin: '5px',
+                  border: '1px solid #ddd' // Optional: to make color boxes more visible
+                }}
+              >
+                {/* Optional: add text or icon */}
+              </div>
+            )) || <div>No color options available</div>}
           </div>
           <div className="size">
             <p>Size</p>
-            <div className="size-num">38</div>
-            <div className="size-num">39</div>
-            <div className="size-num">40</div>
-            <div className="size-num">41</div>
-            <div className="size-num">42</div>
-            <div className="size-num">43</div>
-            <div className="size-num">44</div>
-            <div className="size-num">45</div>
-            <div className="size-num">46</div>
-            <div className="size-num">47</div>
+            {product.sizes?.map((size, index) => (
+              <div className="size-num" key={index}>{size}</div>
+            )) || <div>No size options available</div>}
           </div>
           <div className="button-div">
-          <Link to='/cart' style={{ textDecoration: 'none'}}><button className="cart">ADD TO CART</button></Link>
+            <button className="cart">ADD TO CART</button>
             <button className="like">
               <CiHeart />
             </button>
           </div>
-          <Link to='/check' style={{ textDecoration: 'none'}}><button type="submit" className="buy">BUY IT NOW</button></Link>
+          <button type="submit" className="buy">BUY IT NOW</button>
           <div className="product-data">
             <h2>ABOUT THE PRODUCT</h2>
-            <p>Shadow Navy / Army Green</p>
-            <p>
-              This product is excluded from all promotional discounts and
-              offers.
-            </p>
+            <p>{product.description || 'No product description available'}</p>
             <ul>
-              <li>
-                Pay over time in interest-free installments with Affirm, Klarna
-                or Afterpay.
-              </li>
-              <li>
-                Join adiClub to get unlimited free standard shipping, returns, &
-                exchanges.
-              </li>
+              <li>Pay over time in interest-free installments with Affirm, Klarna or Afterpay.</li>
+              <li>Or pay in full today using our secure checkout.</li>
             </ul>
           </div>
         </div>
       </div>
-      <Cards />
     </div>
   );
 };
