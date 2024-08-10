@@ -7,6 +7,11 @@ import User from '../models/user_model';
 export const registerUser = async (req: Request, res: Response) => {
     const { fname, lname, gender, email, password } = req.body;
 
+    // Basic input validation
+    if (!fname || !lname || !gender || !email || !password) {
+        return res.status(400).json({ message: 'All fields are required' });
+    }
+
     try {
         let user = await User.findOne({ email });
 
@@ -14,17 +19,17 @@ export const registerUser = async (req: Request, res: Response) => {
             return res.status(400).json({ message: 'User already exists' });
         }
 
+        const salt = await bcrypt.genSalt(10);
+        const hashedPassword = await bcrypt.hash(password, salt);
+
         user = new User({
             fname,
             lname,
             gender,
             email,
-            password,
+            password: hashedPassword,
             isOnline: true, // Set isOnline to true on registration
         });
-
-        const salt = await bcrypt.genSalt(10);
-        user.password = await bcrypt.hash(password, salt);
 
         await user.save();
 
@@ -32,10 +37,10 @@ export const registerUser = async (req: Request, res: Response) => {
     } catch (err) {
         if (err instanceof Error) {
             console.error(err.message);
-            res.status(500).send('Server error');
+            res.status(500).json({ message: 'Server error' });
         } else {
             console.error('Unexpected error:', err);
-            res.status(500).send('Server error');
+            res.status(500).json({ message: 'Server error' });
         }
     }
 };
@@ -43,6 +48,11 @@ export const registerUser = async (req: Request, res: Response) => {
 // Login User
 export const loginUser = async (req: Request, res: Response) => {
     const { email, password } = req.body;
+
+    // Basic input validation
+    if (!email || !password) {
+        return res.status(400).json({ message: 'Email and password are required' });
+    }
 
     try {
         let user = await User.findOne({ email });
@@ -64,19 +74,24 @@ export const loginUser = async (req: Request, res: Response) => {
     } catch (err) {
         if (err instanceof Error) {
             console.error(err.message);
-            res.status(500).send('Server error');
+            res.status(500).json({ message: 'Server error' });
         } else {
             console.error('Unexpected error:', err);
-            res.status(500).send('Server error');
+            res.status(500).json({ message: 'Server error' });
         }
     }
 };
 
 // Logout User
 export const logoutUser = async (req: Request, res: Response) => {
-    try {
-        const { email } = req.body;
+    const { email } = req.body;
 
+    // Basic input validation
+    if (!email) {
+        return res.status(400).json({ message: 'Email is required' });
+    }
+
+    try {
         let user = await User.findOne({ email });
 
         if (!user) {
@@ -90,10 +105,10 @@ export const logoutUser = async (req: Request, res: Response) => {
     } catch (err) {
         if (err instanceof Error) {
             console.error(err.message);
-            res.status(500).send('Server error');
+            res.status(500).json({ message: 'Server error' });
         } else {
             console.error('Unexpected error:', err);
-            res.status(500).send('Server error');
+            res.status(500).json({ message: 'Server error' });
         }
     }
 };

@@ -18,7 +18,7 @@ const Navbar = () => {
   return (
     <div className='navbar'>
       <div className="nav-left">
-        <Link to='/men' style={{ textDecoration: 'none', color: 'black' }}><p>New Drops</p></Link>
+        <Link to='/listing' style={{ textDecoration: 'none', color: 'black' }}><p>New Drops</p></Link>
         <p>Category</p>
         <Link to='/shops' style={{ textDecoration: 'none', color: 'black' }}><p>Stores</p></Link>
       </div>
