@@ -27,12 +27,13 @@ app.use('/api/protected', authMiddleware, (req, res) => {
 
 // Connect to MongoDB
 mongoose.connect(process.env.MONGO_URI || '', {
-    // Omit deprecated options
+    dbName: 'kicks-db',
+    serverSelectionTimeoutMS: 5000, // 5 seconds
 }).then(() => {
     console.log('Connected to MongoDB');
 }).catch((err) => {
     if (err instanceof Error) {
-        console.error('Failed to connect to MongoDB', err.message);
+        console.error('Failed to connect to MongoDB:', err.message);
     } else {
         console.error('Unexpected error:', err);
     }
