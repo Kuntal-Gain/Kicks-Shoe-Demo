@@ -2,15 +2,17 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import { CiHeart } from "react-icons/ci";
+import { FaCartPlus, FaBuyNLarge } from "react-icons/fa";
 import ScrollToTop from 'react-scroll-to-top';
 import "./Products.css";
 
 const Products = () => {
   const { productId } = useParams();
   const [product, setProduct] = useState(null);
+  const [selectedColorIdx, setSelectedColorIdx] = useState(0);
+  const [selectedSizeIdx, setSelectedSizeIdx] = useState(null);
 
   useEffect(() => {
-    // Fetch the product data based on productId
     axios.get(`http://localhost:6969/v1/products/fetch/${productId}`)
       .then(response => {
         setProduct(response.data);
@@ -19,6 +21,14 @@ const Products = () => {
         console.error('There was an error fetching the product data!', error);
       });
   }, [productId]);
+
+  const handleColorClick = (index) => {
+    setSelectedColorIdx(index);
+  };
+
+  const handleSizeClick = (index) => {
+    setSelectedSizeIdx(index);
+  };
 
   if (!product) {
     return <div>Loading...</div>;
@@ -37,41 +47,50 @@ const Products = () => {
           )) || <div>No images available</div>}
         </div>
         <div className="product-right">
-          <button>New Release</button>
+          <button className="new-release">New Release</button>
           <h2>{product.productName}</h2>
           <h4>${product.price}</h4>
           <p>Color</p>
           <div className="color">
             {product.colorOptions?.map((color, index) => (
               <div
-                className="color-box"
+                className={`color-box-container ${selectedColorIdx === index ? 'selected' : ''}`}
                 key={index}
-                style={{
-                  background: color,
-                  width: '50px',
-                  height: '50px',
-                  borderRadius: '50%',
-                  margin: '5px',
-                  border: '1px solid #ddd' // Optional: to make color boxes more visible
-                }}
+                onClick={() => handleColorClick(index)}
               >
-                {/* Optional: add text or icon */}
+                <div
+                  className="color-box"
+                  style={{
+                    background: color,
+                  }}
+                />
               </div>
             )) || <div>No color options available</div>}
           </div>
+
+          <p>Size</p>
           <div className="size">
-            <p>Size</p>
             {product.sizes?.map((size, index) => (
-              <div className="size-num" key={index}>{size}</div>
+              <div
+                className={`size-num ${selectedSizeIdx === index ? 'selected' : ''}`}
+                key={index}
+                onClick={() => handleSizeClick(index)}
+              >
+                {size}
+              </div>
             )) || <div>No size options available</div>}
           </div>
           <div className="button-div">
-            <button className="cart">ADD TO CART</button>
+            <button className="cart">
+              <FaCartPlus /> ADD TO CART
+            </button>
             <button className="like">
               <CiHeart />
             </button>
           </div>
-          <button type="submit" className="buy">BUY IT NOW</button>
+          <button type="submit" className="buy">
+            <FaBuyNLarge /> BUY IT NOW
+          </button>
           <div className="product-data">
             <h2>ABOUT THE PRODUCT</h2>
             <p>{product.description || 'No product description available'}</p>
