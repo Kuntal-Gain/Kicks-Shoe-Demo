@@ -1,134 +1,251 @@
-.products-container{
-    max-width: 100%;
-    margin: 5px 30px;
+/* Products Container */
+.products-container {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: flex-start;
     gap: 50px;
+    margin: 5px 30px;
+    max-width: 100%;
 }
-.products-container .product-left{
-    width: 85%;
+
+/* Product Left */
+.product-left {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    width: 85%;
 }
-.product-left .image-div{
+
+/* Image Div */
+.image-div {
     width: auto;
     margin: 5px;
 }
-#div1{
-    border-top-left-radius: 30px;
-}
-#div2{
-    border-top-right-radius: 30px;
-}
-#div3{
-    border-bottom-left-radius: 30px;
-}
-#div4{
-    border-bottom-right-radius: 30px;
-}
-.image-div img{
+
+.image-div img {
     height: 100%;
     width: 100%;
     object-fit: cover;
+    border-radius: 30px;
+    /* Rounded corners for images */
 }
-.product-right button{
+
+/* Product Right */
+.product-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+/* New Release Button */
+.product-right button {
     padding: 10px 20px;
-    margin-top: 10px;
     border-radius: 7px;
     border: none;
     outline: none;
-    background-color: #9640e8;
+    background-color: #4A69E2;
     color: white;
     font-weight: 500;
     font-size: 14px;
-    transition: all 0.5s ease-out;
+    transition: background-color 0.5s ease-out;
 }
-.product-right button:hover{
+
+.product-right button:hover {
     background-color: #212121;
 }
-.product-right h2{
+
+/* Product Name */
+.product-right h2 {
     font-size: 2vw;
     margin-top: 15px;
 }
-.product-right h4{
-    font-size: 1.5vw;
+
+/* Product Price */
+.product-right h4 {
+    font-size: 24px;
     color: #0f48ce;
     margin-top: 15px;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 600;
+    /* Semi-bold */
 }
-.product-right p{
+
+/* Product Description */
+.product-right p {
     font-size: 1.5vw;
     margin-top: 10px;
     font-weight: 600;
 }
-.color{
+
+/* Color Options */
+.color {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    /* Space between color boxes */
+    margin-top: 10px;
+}
+
+/* Individual Color Box Container */
+.color .color-box-container {
+    width: 45px;
+    /* Container size */
+    height: 45px;
+    border-radius: 50%;
+    /* Circular border */
+    border: 4px solid transparent;
+    /* Default border */
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 30px;
-    width: 35%;
-    height: 10vh;
-    margin-top: 10px;
+    overflow: hidden;
+    /* Ensures child content stays within bounds */
 }
-.color .color1{
-    width: 30%;
-    height: 7vh;
+
+/* Selected Color Box Container */
+.color .color-box-container.selected {
+    border: 4px solid #232321;
+    /* Border color for selected color */
+}
+
+/* Individual Color Box */
+.color .color-box {
+    width: 35px;
+    /* Color box size */
+    height: 35px;
     border-radius: 50%;
-    background-color: #253043;
+    /* Make the color box circular */
+    border: 1px solid #ddd;
+    /* Border color for the color box */
+    /* Optional: Add a slight shadow for better visibility */
 }
-.color .color2{
-    width: 30%;
-    height: 7vh;
-    border-radius: 50%;
-    background-color: #707E6E;
-}
-.size{
-    width: 100%;
-    padding: 20px;
+
+/* Sizes Container */
+.size {
+    display: flex;
+    gap: 10px;
+    /* Space between sizes */
     margin-top: 10px;
-    margin-left: -15px;
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    align-items: center;
+    justify-content: flex-start;
+    /* Adjusts alignment to the start */
+    width: fit-content;
+    /* Ensures the container shrinks to fit content */
+    padding: 10px;
+    /* Optional padding around the sizes */
 }
-.size .size-num{
-    border: 2px solid black;
+
+/* Individual Size Box */
+.size .size-num {
+    width: 50px;
+    /* Size box size */
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    /* Circular shape */
+    border: 1px solid #ddd;
+    /* Default border */
     text-align: center;
-    padding: 10px;
     font-size: 1.2rem;
-    margin: 10px;
-    border-radius: 10px;
+    cursor: pointer;
+    /* Pointer cursor on hover */
+    transition: background-color 0.3s ease;
 }
-.button-div{
+
+/* Selected Size Box */
+.size .size-num.selected {
+    background-color: #232321;
+    /* Background color for selected size */
+    color: white;
+    /* Text color for readability */
+
+    /* Border color for selected size */
+}
+
+/* Button Div */
+.button-div {
+    display: flex;
+    gap: 10px;
+    /* Space between buttons */
     margin-top: 10px;
+    width: 100%;
+    /* Ensures button container takes full width */
+}
+
+.button-div .like {
+    background-color: #232321;
+}
+
+/* Add to Cart Button */
+.button-div .cart {
+    background-color: #232321;
+    /* Background color */
+    color: white;
+    /* Text color */
+    border: none;
+    /* Remove default border */
+    border-radius: 8px;
+    /* Border radius */
     padding: 10px;
+    flex: 1;
+    /* Take remaining space */
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 20px;
+    gap: 10px;
+    /* Space between icon and text */
+    height: 45px;
 }
-.button-div .cart{
-    background-color: #253043;
-    padding: 10px 150px;
+
+.button-div .cart:hover {
+    background-color: #4A69E2;
+    /* Hover background color */
+}
+
+.button-div .like:hover {
+    background-color: #4A69E2;
+    /* Hover background color */
+}
+
+/* Buy It Now Button */
+.buy {
+    background-color: #4A69E2;
+    /* Background color */
+    color: white;
+    /* Text color */
+    border: none;
+    /* Remove default border */
+    border-radius: 12px;
+    /* Border radius */
+    height: 50px;
+    /* Set height */
     width: 100%;
-    border: 1px solid black;
+    /* Take full remaining width */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    /* Space between icon and text */
+    font-size: 16px;
+    /* Adjust font size if needed */
+    padding: 0 20px;
+    /* Padding for left and right */
+    box-sizing: border-box;
+    /* Ensure padding does not affect total width */
+    cursor: pointer;
+    /* Pointer cursor on hover */
 }
-.button-div .like{
-    background-color: #253043;
-    margin-left: 4px;
-    padding: 7px 15px;
-    font-size: 1.3vw;
-}
-.buy{
-    margin-left: 25px;
-    width: 90%;
-    padding: 20px;
-}
-.product-data{
+
+/* Product Data */
+.product-data {
     margin-top: 20px;
     padding: 10px 20px;
     color: #2f302f;
 }
-.product-data ul li{
+
+/* Product Data List Items */
+.product-data ul li {
     font-size: 1.15rem;
     margin: 5px 10px;
     list-style: circle;
